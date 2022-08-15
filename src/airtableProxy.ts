@@ -1,3 +1,4 @@
+import { RequestHandler } from "express";
 import {createProxyMiddleware, Options} from "http-proxy-middleware";
 
 export interface AirtableProxyOptions {
@@ -8,7 +9,7 @@ export interface AirtableProxyOptions {
     proxyMiddlewareOptions?: Options
 }
 
-export function createAirtableProxy(options: AirtableProxyOptions) {
+export function createAirtableProxy(options: AirtableProxyOptions): RequestHandler {
     const {
         apiKey,
         target,
